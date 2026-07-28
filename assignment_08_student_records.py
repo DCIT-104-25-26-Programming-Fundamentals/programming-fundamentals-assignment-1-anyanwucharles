@@ -89,4 +89,87 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
+def display_menu():
+  print("=========================================")
+  print("  STUDENT RECORD SYSTEM MENU    ")
+  print("=========================================")
+  print("1.Add student")
+  print("2.Display all students")
+  print("3.Calculate average score")
+  print("4.Quit")
+
+def add_student("Student name: "):
+  name = input("Student name: ").strip()
+  stuent_id = input("Student ID: ").strip()
+
+try:
+  num_scores = int(input("How many scores? "))
+  if num_scores <= 0:
+    print("Please enter a positive number of scores>")
+    return
+except ValueError:
+  print("Invalid nuber of scores.")
+  return
+
+scores = []
+for i in range(1, num_scores +1):
+  try:
+    score = float(input(f"Enter score {i}: "))
+    scores.append(score)
+  except ValueError:
+    print("Invalid score input. Skipping this score.")
+
+student = {
+  "name": name,
+  "id":student_id,
+  "scores": scores
+}
+student.append(student)
+print(f'student "{name}" added successfully')
+
+def display_all_students(students):
+  if not students:
+    print("No students found.")
+    return
+
+print("-" *50)
+print(f"{'Name':<15} {'ID':<10} {'scores':<15} {'Average':<8}")
+print("-" * 50)
+
+def calculate_average(students):
+  search_id = input("Enter student ID: ").strip()
+
+for s in students:
+  if s["id"] == search_id:
+    if s["scores"]:  
+      avg = round(sum(s["scores"]) / len(s["scores"]), 2)
+      print(f"{s['name']}'s average score: {avg:.2f}")
+  else:
+    print(f"{s['name']} has no recorded score.")
+  return
+
+print("Error: Student ID not found.")
+
+def main():
+  students = []
+  while True:
+    display_menu()
+    choice = input("Enter your choice (1-4): ").strip()
+
+if choice == "1":
+  add_students(students)
+elif choice =="2":
+  display_all_students(students)
+elif choice =="3":
+  calculate_average(students)
+elif choice == "4":
+  print("Goodbye")
+  break
+else:
+  print("Invalid choice. Please enter a number between 1 and 4.")
+
+main()
+
+
+
 
