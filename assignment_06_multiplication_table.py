@@ -54,4 +54,36 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
+def print_single_table(num):
+  print(f"Multiplication Table for {num}:")
+  for i in range(1, 13):
+    print(f"{num} * {i} = {num}")
 
+    def part_a():
+      user_input + input("Enter a number: ")
+    try:
+      num = int(user_input)
+      if num <= 0:
+        print("Error: Please enter a positive integer.")
+        return
+        print_single_table(num)
+    except ValueError:
+      print("Error: Please enter a positive integer.")
+
+def part_b():
+  user_input = input("Enter a number N: ")
+  try:
+    n = int(user_input)
+    if n <= 0:
+      print("Error: Please enter a positive integer.")
+      return
+    for i in range(1, n + 1):
+      print_single_table(i)
+      if i < n:
+        print("-" * 25)
+  except ValueError:
+    print("Error: Please enter a positive integer.")
+
+part_a()
+part_b()
+    
